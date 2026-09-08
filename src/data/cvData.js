@@ -3,7 +3,7 @@ export const profile = {
   title: 'Software Engineering & Multimedia Student',
   summary:
     'Final-year Diploma in Software Engineering and Multimedia student at Limkokwing University of Creative Technology. I build responsive web applications with React.js and JavaScript, and I enjoy turning clear designs into accessible, maintainable interfaces. Currently seeking an internship or graduate position where I can contribute to real product work and keep growing as a front-end developer.',
-  photo: 'https://ui-avatars.com/api/?name=Tiisetso+Rannyama&size=256&background=1f6feb&color=ffffff&bold=true',
+  photo: 'https://ui-avatars.com/api/?name=Tiisetso+Rannyama&size=256&background=1d9e75&color=ffffff&bold=true',
 };
 
 export const contact = {

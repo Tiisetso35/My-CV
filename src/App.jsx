@@ -11,7 +11,7 @@ import { contact, education, experience, profile, projects, references, skills }
 import './App.css';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [skillsVisible, setSkillsVisible] = useState(true);
   const [referencesVisible, setReferencesVisible] = useState(false);
   const [interactions, setInteractions] = useState(0);
