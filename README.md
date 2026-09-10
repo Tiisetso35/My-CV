@@ -28,8 +28,8 @@ References and Footer.
 - **useState** — `showSkills` and `showReferences` in `App.jsx`.
 - **useEffect** — sets the browser tab title to "My CV - Tiisetso Rannyama" when the
   application loads.
-- **Event handling and DOM** — Show/Hide Skills, Show/Hide References and Print CV
-  (`window.print()`).
+- **Event handling and DOM** — Show/Hide Skills, Show/Hide References and Download CV
+  (`window.print()`, then "Save as PDF").
 - **Responsive CSS** — CSS Grid and a media query at 700px.
 - **Navigation** — links in the header scroll to each section.
 

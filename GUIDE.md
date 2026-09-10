@@ -20,7 +20,7 @@ my-cv/
     assets/
       profile.jpg          my profile photo
     components/
-      Header.jsx           name, title, navigation links, Print CV button
+      Header.jsx           name, title, navigation links, Download CV button
       Profile.jsx          photo and professional summary
       Contact.jsx          email, phone, location
       Education.jsx        institution, programme, year
@@ -72,7 +72,7 @@ Props are the information a parent component sends to a child component.
 In `App.jsx` (the parent):
 
 ```jsx
-<Header name={person.name} title={person.title} onPrint={handlePrint} />
+<Header name={person.name} title={person.title} onDownload={handleDownload} />
 <Education items={education} />
 <Skills items={skills} show={showSkills} onToggle={handleShowSkills} />
 ```
@@ -80,7 +80,7 @@ In `App.jsx` (the parent):
 In `Header.jsx` (the child) the props are received between curly brackets:
 
 ```jsx
-function Header({ name, title, onPrint }) {
+function Header({ name, title, onDownload }) {
   return <h1 className="header-name">{name}</h1>;
 }
 ```
@@ -158,15 +158,17 @@ the click event:
 **b) Show/Hide References** — exactly the same, using `showReferences` in `App.jsx` and
 the same pattern inside `References.jsx`.
 
-**c) Print CV**
+**c) Download CV**
 
 ```jsx
-function handlePrint() {
+function handleDownload() {
   window.print();
 }
 ```
 
-`window.print()` is a browser (DOM) function that opens the print dialog. In `App.css`
+`window.print()` is a browser (DOM) function that opens the print dialog. To download
+the CV, choose **Save as PDF** as the destination — the file is saved with the document
+title, "My CV - Tiisetso Rannyama". In `App.css`
 there is a small print rule so the buttons and the navigation are not printed:
 
 ```css
@@ -222,8 +224,8 @@ listed in section 1 plus `src/data/cvData.js`, and put your photo in `src/assets
 - Click **Hide Skills** — the skills list disappears and the button says "Show Skills".
   Click it again to bring the list back.
 - Click **Hide References** — the same happens with the references.
-- Click **Print CV** — the print window opens and the buttons and navigation are not on
-  the printed page (you can choose "Save as PDF").
+- Click **Download CV** — the print window opens; choose "Save as PDF" to download the
+  CV. The buttons and the navigation are not on the saved page.
 - Click the navigation links — the page scrolls to that section.
 - Look at the browser tab — it says "My CV - Tiisetso Rannyama" (that is `useEffect`).
 - Make the browser window narrow, or press `F12` and choose a phone size, to check that

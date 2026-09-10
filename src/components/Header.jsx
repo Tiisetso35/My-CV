@@ -1,6 +1,6 @@
 // Header: shows the name, the professional title, the navigation links
-// and the Print CV button. The name, title and onPrint come from App as props.
-function Header({ name, title, onPrint }) {
+// and the Download CV button. The name, title and onDownload come from App as props.
+function Header({ name, title, onDownload }) {
   return (
     <header className="header">
       <div className="header-top">
@@ -8,8 +8,8 @@ function Header({ name, title, onPrint }) {
           <h1 className="header-name">{name}</h1>
           <p className="header-title">{title}</p>
         </div>
-        <button className="button" onClick={onPrint}>
-          Print CV
+        <button className="button" onClick={onDownload}>
+          Download CV
         </button>
       </div>
 

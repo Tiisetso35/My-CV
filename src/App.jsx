@@ -30,13 +30,14 @@ function App() {
     setShowReferences(!showReferences);
   }
 
-  function handlePrint() {
+  // Opens the browser print window, where the CV can be saved as a PDF file
+  function handleDownload() {
     window.print();
   }
 
   return (
     <div className="app">
-      <Header name={person.name} title={person.title} onPrint={handlePrint} />
+      <Header name={person.name} title={person.title} onDownload={handleDownload} />
 
       <main className="container">
         <Profile person={person} />
