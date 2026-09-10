@@ -26,12 +26,12 @@ export const education = [
     year: '2023 - 2024',
   },
   {
-    institution: 'Maseru High School',
+    institution: 'Makena High School, Mafeteng',
     programme: 'Lesotho General Certificate of Secondary Education (LGCSE)',
     year: '2021',
   },
   {
-    institution: 'Maseru High School',
+    institution: 'Makena High School, Mafeteng',
     programme: 'Junior Certificate (Form C)',
     year: '2019',
   },
