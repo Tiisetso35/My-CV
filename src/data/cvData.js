@@ -28,7 +28,12 @@ export const education = [
   {
     institution: 'Maseru High School',
     programme: 'Lesotho General Certificate of Secondary Education (LGCSE)',
-    year: '2019 - 2022',
+    year: '2021',
+  },
+  {
+    institution: 'Maseru High School',
+    programme: 'Junior Certificate (Form C)',
+    year: '2019',
   },
 ];
 
@@ -53,12 +58,12 @@ export const experience = [
     ],
   },
   {
-    position: 'IT Support Assistant (Part-time)',
-    organisation: 'Maluti Cabs, Maseru',
+    position: 'Car Wash Attendant (Part-time)',
+    organisation: 'Local Car Wash, Maseru',
     responsibilities: [
-      'Updated the company WordPress website with new service information.',
-      'Assisted staff with basic computer, printer and network problems.',
-      'Kept a simple record of the problems reported and how they were fixed.',
+      'Washed and cleaned customer vehicles to the required standard.',
+      'Served customers, took their orders and handled payments.',
+      'Worked as part of a small team to finish jobs on time.',
     ],
   },
 ];
@@ -91,9 +96,9 @@ export const references = [
   },
   {
     name: 'Ms. Palesa Mokoena',
-    position: 'Operations Manager',
-    organisation: 'Maluti Cabs, Maseru',
-    email: 'operations@malutacabs.co.ls',
+    position: 'Supervisor',
+    organisation: 'Local Car Wash, Maseru',
+    email: 'supervisor@example.com',
     phone: '+266 5000 0002',
   },
 ];
