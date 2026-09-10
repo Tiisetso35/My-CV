@@ -95,10 +95,9 @@ export const references = [
     phone: '+266 5000 0001',
   },
   {
-    name: 'Ms. Palesa Mokoena',
+    name: 'Khauta Rannyama',
     position: 'Supervisor',
     organisation: 'Local Car Wash, Mafeteng',
-    email: 'supervisor@example.com',
-    phone: '+266 5000 0002',
+    phone: '+266 5994 3035',
   },
 ];

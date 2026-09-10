@@ -17,9 +17,11 @@ function References({ items, show, onToggle }) {
               <h3>{person.name}</h3>
               <p className="highlight">{person.position}</p>
               <p>{person.organisation}</p>
-              <p>
-                <a href={'mailto:' + person.email}>{person.email}</a>
-              </p>
+              {person.email && (
+                <p>
+                  <a href={'mailto:' + person.email}>{person.email}</a>
+                </p>
+              )}
               <p>{person.phone}</p>
             </div>
           ))}
