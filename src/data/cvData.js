@@ -59,7 +59,7 @@ export const experience = [
   },
   {
     position: 'Car Wash Attendant (Part-time)',
-    organisation: 'Local Car Wash, Maseru',
+    organisation: 'Local Car Wash, Mafeteng',
     responsibilities: [
       'Washed and cleaned customer vehicles to the required standard.',
       'Served customers, took their orders and handled payments.',
@@ -97,7 +97,7 @@ export const references = [
   {
     name: 'Ms. Palesa Mokoena',
     position: 'Supervisor',
-    organisation: 'Local Car Wash, Maseru',
+    organisation: 'Local Car Wash, Mafeteng',
     email: 'supervisor@example.com',
     phone: '+266 5000 0002',
   },
