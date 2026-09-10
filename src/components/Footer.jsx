@@ -1,11 +1,12 @@
-function Footer({ name, contact, year }) {
+// Footer: shows the name, the contact information and the copyright line.
+function Footer({ name, email, phone }) {
   return (
     <footer className="footer">
       <p className="footer-name">{name}</p>
       <p>
-        <a href={`mailto:${contact.email}`}>{contact.email}</a> &middot; {contact.phone} &middot; {contact.location}
+        {email} | {phone}
       </p>
-      <p className="copyright">&copy; {year} {name}. All rights reserved.</p>
+      <p>&copy; 2026 {name}. All rights reserved.</p>
     </footer>
   );
 }

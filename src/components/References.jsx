@@ -1,29 +1,31 @@
-import Section from './Section';
-
-function References({ items, visible, onToggle }) {
-  const action = (
-    <button type="button" className="btn btn-small" onClick={onToggle}>
-      {visible ? 'Hide References' : 'Show References'}
-    </button>
-  );
-
+// References: works the same way as Skills.
+// The button uses the onToggle function to show or hide the references.
+function References({ items, show, onToggle }) {
   return (
-    <Section id="references" title="References" action={action}>
-      {visible ? (
+    <section className="section" id="references">
+      <div className="section-top">
+        <h2>References</h2>
+        <button className="button" onClick={onToggle}>
+          {show ? 'Hide References' : 'Show References'}
+        </button>
+      </div>
+
+      {show && (
         <div className="grid">
           {items.map((person) => (
-            <article key={person.id} className="card">
+            <div className="card" key={person.name}>
               <h3>{person.name}</h3>
-              <p className="organisation">{person.role}</p>
+              <p className="highlight">{person.position}</p>
               <p>{person.organisation}</p>
-              <a href={`mailto:${person.email}`}>{person.email}</a>
-            </article>
+              <p>
+                <a href={'mailto:' + person.email}>{person.email}</a>
+              </p>
+              <p>{person.phone}</p>
+            </div>
           ))}
         </div>
-      ) : (
-        <p className="muted">References are available on request.</p>
       )}
-    </Section>
+    </section>
   );
 }
 

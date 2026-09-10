@@ -1,65 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Profile from './components/Profile';
+import Contact from './components/Contact';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import References from './components/References';
 import Footer from './components/Footer';
-import { contact, education, experience, profile, projects, references, skills } from './data/cvData';
+import { person, education, skills, experience, projects, references } from './data/cvData';
 import './App.css';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
-  const [skillsVisible, setSkillsVisible] = useState(true);
-  const [referencesVisible, setReferencesVisible] = useState(false);
-  const [interactions, setInteractions] = useState(0);
+  // useState: these two values remember if the sections are shown or hidden
+  const [showSkills, setShowSkills] = useState(true);
+  const [showReferences, setShowReferences] = useState(true);
 
+  // useEffect: runs once when the page loads and changes the browser tab title
   useEffect(() => {
-    document.title = `${profile.fullName} | ${profile.title}`;
+    document.title = 'My CV - ' + person.name;
   }, []);
 
-  useEffect(() => {
-    document.body.classList.toggle('dark', theme === 'dark');
-  }, [theme]);
+  // Event handler functions
+  function handleShowSkills() {
+    setShowSkills(!showSkills);
+  }
 
-  const countInteraction = () => setInteractions((current) => current + 1);
+  function handleShowReferences() {
+    setShowReferences(!showReferences);
+  }
 
-  const toggleTheme = () => {
-    setTheme((current) => (current === 'light' ? 'dark' : 'light'));
-    countInteraction();
-  };
-
-  const toggleSkills = () => {
-    setSkillsVisible((visible) => !visible);
-    countInteraction();
-  };
-
-  const toggleReferences = () => {
-    setReferencesVisible((visible) => !visible);
-    countInteraction();
-  };
-
-  const printCv = () => {
-    countInteraction();
+  function handlePrint() {
     window.print();
-  };
+  }
 
   return (
     <div className="app">
-      <Header name={profile.fullName} theme={theme} onToggleTheme={toggleTheme} onPrint={printCv} />
+      <Header name={person.name} title={person.title} onPrint={handlePrint} />
 
-      <main className="page">
-        <Profile profile={profile} contact={contact} interactions={interactions} />
+      <main className="container">
+        <Profile person={person} />
+        <Contact email={person.email} phone={person.phone} location={person.location} />
         <Education items={education} />
-        <Skills items={skills} visible={skillsVisible} onToggle={toggleSkills} />
+        <Skills items={skills} show={showSkills} onToggle={handleShowSkills} />
         <Experience items={experience} />
         <Projects items={projects} />
-        <References items={references} visible={referencesVisible} onToggle={toggleReferences} />
+        <References items={references} show={showReferences} onToggle={handleShowReferences} />
       </main>
 
-      <Footer name={profile.fullName} contact={contact} year={new Date().getFullYear()} />
+      <Footer name={person.name} email={person.email} phone={person.phone} />
     </div>
   );
 }

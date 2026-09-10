@@ -1,35 +1,12 @@
-function Profile({ profile, contact, interactions }) {
+// Profile: shows the photo and the short professional summary.
+// The whole person object is received as one prop.
+function Profile({ person }) {
   return (
-    <section className="profile" id="profile">
-      <img className="avatar" src={profile.photo} alt={`Portrait of ${profile.fullName}`} />
-
-      <div className="profile-body">
-        <h1>{profile.fullName}</h1>
-        <p className="job-title">{profile.title}</p>
-        <p className="summary">{profile.summary}</p>
-
-        <ul className="contact-list">
-          <li>
-            <span className="label">Email</span>
-            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          </li>
-          <li>
-            <span className="label">Phone</span>
-            <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
-          </li>
-          <li>
-            <span className="label">Location</span>
-            <span>{contact.location}</span>
-          </li>
-          <li>
-            <span className="label">GitHub</span>
-            <a href={contact.github} target="_blank" rel="noreferrer">
-              {contact.github.replace('https://', '')}
-            </a>
-          </li>
-        </ul>
-
-        <p className="visits">Interactions in this session: {interactions}</p>
+    <section className="section" id="profile">
+      <h2>Profile</h2>
+      <div className="card profile">
+        <img className="photo" src={person.photo} alt={person.name} />
+        <p>{person.summary}</p>
       </div>
     </section>
   );

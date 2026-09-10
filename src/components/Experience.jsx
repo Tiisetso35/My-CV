@@ -1,25 +1,21 @@
-import Section from './Section';
-
+// Experience: shows the position, the organisation and the
+// list of responsibilities for each job received in the items prop.
 function Experience({ items }) {
   return (
-    <Section id="experience" title="Work Experience">
-      <ul className="timeline">
-        {items.map((job) => (
-          <li key={job.id} className="card">
-            <div className="card-head">
-              <h3>{job.position}</h3>
-              <span className="period">{job.period}</span>
-            </div>
-            <p className="organisation">{job.organisation}</p>
-            <ul className="bullets">
-              {job.responsibilities.map((duty) => (
-                <li key={duty}>{duty}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </Section>
+    <section className="section" id="experience">
+      <h2>Work Experience</h2>
+      {items.map((job) => (
+        <div className="card" key={job.position}>
+          <h3>{job.position}</h3>
+          <p className="highlight">{job.organisation}</p>
+          <ul>
+            {job.responsibilities.map((task) => (
+              <li key={task}>{task}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
   );
 }
 

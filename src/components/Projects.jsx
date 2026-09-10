@@ -1,18 +1,17 @@
-import Section from './Section';
-
+// Projects: shows the student projects with a short description.
 function Projects({ items }) {
   return (
-    <Section id="projects" title="Projects">
+    <section className="section" id="projects">
+      <h2>Projects</h2>
       <div className="grid">
         {items.map((project) => (
-          <article key={project.id} className="card">
+          <div className="card" key={project.name}>
             <h3>{project.name}</h3>
-            <p className="tech">{project.tech}</p>
             <p>{project.description}</p>
-          </article>
+          </div>
         ))}
       </div>
-    </Section>
+    </section>
   );
 }
 

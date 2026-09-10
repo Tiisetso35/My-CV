@@ -1,32 +1,26 @@
-import Section from './Section';
-
-function Skills({ items, visible, onToggle }) {
-  const action = (
-    <button type="button" className="btn btn-small" onClick={onToggle}>
-      {visible ? 'Hide Skills' : 'Show Skills'}
-    </button>
-  );
-
+// Skills: shows the list of skills.
+// "show" tells the component if the list must be visible,
+// "onToggle" is the function that runs when the button is clicked.
+function Skills({ items, show, onToggle }) {
   return (
-    <Section id="skills" title="Skills" action={action}>
-      {visible ? (
-        <ul className="skill-list">
-          {items.map((skill) => (
-            <li key={skill.id}>
-              <div className="skill-row">
-                <span>{skill.name}</span>
-                <span className="percent">{skill.level}%</span>
-              </div>
-              <div className="bar" role="presentation">
-                <div className="bar-fill" style={{ width: `${skill.level}%` }} />
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="muted">Skills are hidden. Use the button above to show them.</p>
+    <section className="section" id="skills">
+      <div className="section-top">
+        <h2>Skills</h2>
+        <button className="button" onClick={onToggle}>
+          {show ? 'Hide Skills' : 'Show Skills'}
+        </button>
+      </div>
+
+      {show && (
+        <div className="card">
+          <ul className="skill-list">
+            {items.map((skill) => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </div>
       )}
-    </Section>
+    </section>
   );
 }
 

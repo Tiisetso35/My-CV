@@ -1,115 +1,99 @@
 import photo from '../assets/profile.jpg';
 
-export const profile = {
-  fullName: 'Tiisetso Rannyama',
+// All the CV information is kept in this one file.
+// Change the values here and the whole CV updates.
+
+export const person = {
+  name: 'Tiisetso Rannyama',
   title: 'Software Engineering & Multimedia Student',
   summary:
-    'Final-year Diploma in Software Engineering and Multimedia student at Limkokwing University of Creative Technology. I build responsive web applications with React.js and JavaScript, and I enjoy turning clear designs into accessible, maintainable interfaces. Currently seeking an internship or graduate position where I can contribute to real product work and keep growing as a front-end developer.',
+    'I am a third-year Diploma in Software Engineering and Multimedia student at Limkokwing University of Creative Technology. I enjoy building simple, responsive websites with HTML, CSS, JavaScript and React, and I also work with Python, WordPress and design tools. I am looking for an internship where I can practise what I have learned and gain real work experience.',
   photo,
-};
-
-export const contact = {
   email: 'tiisetsorannyama@gmail.com',
   phone: '+266 5000 0000',
   location: 'Maseru, Lesotho',
-  github: 'https://github.com/Tiisetso35',
 };
 
 export const education = [
   {
-    id: 'edu-1',
-    qualification: 'Diploma in Software Engineering and Multimedia',
     institution: 'Limkokwing University of Creative Technology, Lesotho',
-    years: '2024 - 2026',
-    detail: 'Year 3, Semester 1. Coursework: Web Design II, Object Oriented Programming, Database Systems, Mobile Application Development.',
+    programme: 'Diploma in Software Engineering and Multimedia',
+    year: 'Year 3, Semester 1 (2024 - 2026)',
   },
   {
-    id: 'edu-2',
-    qualification: 'Foundation in Information Technology',
     institution: 'Limkokwing University of Creative Technology, Lesotho',
-    years: '2023 - 2024',
-    detail: 'Introduction to programming, computer systems and digital media production.',
+    programme: 'Foundation in Information Technology',
+    year: '2023 - 2024',
   },
   {
-    id: 'edu-3',
-    qualification: 'Lesotho General Certificate of Secondary Education (LGCSE)',
     institution: 'Maseru High School',
-    years: '2019 - 2022',
-    detail: 'Subjects included Mathematics, Physical Science, English and Computer Studies.',
+    programme: 'Lesotho General Certificate of Secondary Education (LGCSE)',
+    year: '2019 - 2022',
   },
 ];
 
 export const skills = [
-  { id: 'sk-1', name: 'React.js (components, props, hooks)', level: 85 },
-  { id: 'sk-2', name: 'JavaScript (ES6+)', level: 82 },
-  { id: 'sk-3', name: 'HTML5 & CSS3 / Responsive Design', level: 90 },
-  { id: 'sk-4', name: 'Git & GitHub version control', level: 75 },
-  { id: 'sk-5', name: 'UI/UX design (Figma, Adobe XD)', level: 70 },
-  { id: 'sk-6', name: 'Teamwork & communication', level: 88 },
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Python',
+  'WordPress',
+  'Multimedia and graphic design (Photoshop, Illustrator)',
 ];
 
 export const experience = [
   {
-    id: 'exp-1',
-    position: 'Front-End Developer (Student Project Team)',
+    position: 'Web Design Intern (Student Placement)',
     organisation: 'Limkokwing University, Faculty of ICT',
-    period: 'Jan 2026 - Present',
     responsibilities: [
-      'Develop responsive interfaces in React.js for faculty coursework projects.',
-      'Translate Figma wireframes into reusable, prop-driven components.',
-      'Review teammates\u2019 pull requests and maintain the shared Git repository.',
+      'Updated pages of the faculty website using HTML and CSS.',
+      'Helped other students with small React and JavaScript exercises.',
+      'Prepared images and simple graphics for the web pages.',
     ],
   },
   {
-    id: 'exp-2',
     position: 'IT Support Assistant (Part-time)',
     organisation: 'Maluti Cabs, Maseru',
-    period: 'Jun 2025 - Dec 2025',
     responsibilities: [
-      'Maintained the company web presence and updated service content weekly.',
-      'Provided first-line support for staff hardware, network and software issues.',
-      'Documented recurring faults and their fixes to shorten resolution time.',
+      'Updated the company WordPress website with new service information.',
+      'Assisted staff with basic computer, printer and network problems.',
+      'Kept a simple record of the problems reported and how they were fixed.',
     ],
   },
 ];
 
 export const projects = [
   {
-    id: 'prj-1',
-    name: 'Online Curriculum Vitae (this application)',
-    tech: 'React.js, Vite, CSS3',
+    name: 'Online CV (this project)',
     description:
-      'A component-based online CV built with functional components, props, useState and useEffect, featuring a dark/light theme, collapsible sections and a print-to-PDF option.',
+      'A single page CV website built with React components, props, useState and useEffect. It has Show/Hide buttons and a Print CV button.',
   },
   {
-    id: 'prj-2',
-    name: 'Maluti Cabs Booking Interface',
-    tech: 'HTML5, CSS3, JavaScript',
+    name: 'Maluti Cabs Booking Page',
     description:
-      'An academic project providing a ride-booking form with client-side validation, fare estimation and a responsive layout for mobile users.',
+      'A class project with a booking form built in HTML, CSS and JavaScript. The form checks that all fields are filled in before submitting.',
   },
   {
-    id: 'prj-3',
-    name: 'Campus Event Notice Board',
-    tech: 'React.js, LocalStorage',
+    name: 'Campus Notice Board',
     description:
-      'A personal project where students post and filter campus events; state is managed with hooks and persisted in the browser between visits.',
+      'A small React practice project where students can add and remove notices. It uses useState to keep the list of notices.',
   },
 ];
 
 export const references = [
   {
-    id: 'ref-1',
     name: 'Mr. Liteboho Molaoa',
-    role: 'Lecturer, Web Design II',
+    position: 'Lecturer, Web Design II',
     organisation: 'Limkokwing University of Creative Technology',
     email: 'liteboho.molaoa@limkokwing.ac.ls',
+    phone: '+266 5000 0001',
   },
   {
-    id: 'ref-2',
     name: 'Ms. Palesa Mokoena',
-    role: 'Operations Manager',
+    position: 'Operations Manager',
     organisation: 'Maluti Cabs, Maseru',
     email: 'operations@malutacabs.co.ls',
+    phone: '+266 5000 0002',
   },
 ];
