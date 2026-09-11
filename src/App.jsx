@@ -39,7 +39,7 @@ function App() {
       <Header name={person.name} title={person.title} onDownload={handleDownload} />
 
       <div className="container">
-        <Profile photo={person.photo} name={person.name} summary={person.summary} />
+        <Profile summary={person.summary} />
         <Contact email={person.email} phone={person.phone} location={person.location} />
         <Education items={education} />
         <Skills items={skills} show={showSkills} onToggle={handleShowSkills} />

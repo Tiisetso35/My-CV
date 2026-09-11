@@ -18,8 +18,6 @@ src/
     Footer.jsx
   data/
     cvData.js
-  assets/
-    profile.jpg
   App.jsx
   App.css
   index.css

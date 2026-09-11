@@ -1,5 +1,3 @@
-import photo from '../assets/profile.jpg';
-
 // All my CV information is kept here
 
 export const person = {
@@ -7,7 +5,6 @@ export const person = {
   title: 'Software Engineering and Multimedia Student',
   summary:
     'I am a third year student doing a Diploma in Software Engineering and Multimedia at Limkokwing University of Creative Technology. I like building websites with HTML, CSS, JavaScript and React. I am looking for an internship where I can learn more and get work experience.',
-  photo,
   email: 'tiisetsorannyama@gmail.com',
   phone: '+266 5000 0000',
   location: 'Maseru, Lesotho',
