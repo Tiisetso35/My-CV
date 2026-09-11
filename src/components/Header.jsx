@@ -1,17 +1,9 @@
-// Header: shows the name, the professional title, the navigation links
-// and the Download CV button. The name, title and onDownload come from App as props.
+// Header shows my name, my title, the menu and the Download CV button
 function Header({ name, title, onDownload }) {
   return (
     <header className="header">
-      <div className="header-top">
-        <div>
-          <h1 className="header-name">{name}</h1>
-          <p className="header-title">{title}</p>
-        </div>
-        <button className="button" onClick={onDownload}>
-          Download CV
-        </button>
-      </div>
+      <h1>{name}</h1>
+      <p>{title}</p>
 
       <nav className="nav">
         <a href="#profile">Profile</a>
@@ -22,6 +14,10 @@ function Header({ name, title, onDownload }) {
         <a href="#projects">Projects</a>
         <a href="#references">References</a>
       </nav>
+
+      <button className="button" onClick={onDownload}>
+        Download CV
+      </button>
     </header>
   );
 }

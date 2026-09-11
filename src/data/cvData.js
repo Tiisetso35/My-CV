@@ -1,13 +1,12 @@
 import photo from '../assets/profile.jpg';
 
-// All the CV information is kept in this one file.
-// Change the values here and the whole CV updates.
+// All my CV information is kept here
 
 export const person = {
   name: 'Tiisetso Rannyama',
-  title: 'Software Engineering & Multimedia Student',
+  title: 'Software Engineering and Multimedia Student',
   summary:
-    'I am a third-year Diploma in Software Engineering and Multimedia student at Limkokwing University of Creative Technology. I enjoy building simple, responsive websites with HTML, CSS, JavaScript and React, and I also work with Python, WordPress and design tools. I am looking for an internship where I can practise what I have learned and gain real work experience.',
+    'I am a third year student doing a Diploma in Software Engineering and Multimedia at Limkokwing University of Creative Technology. I like building websites with HTML, CSS, JavaScript and React. I am looking for an internship where I can learn more and get work experience.',
   photo,
   email: 'tiisetsorannyama@gmail.com',
   phone: '+266 5000 0000',
@@ -44,45 +43,36 @@ export const skills = [
   'React',
   'Python',
   'WordPress',
-  'Multimedia and graphic design (Photoshop, Illustrator)',
+  'Photoshop and Illustrator',
 ];
 
 export const experience = [
   {
-    position: 'Web Design Intern (Student Placement)',
-    organisation: 'Limkokwing University, Faculty of ICT',
-    responsibilities: [
-      'Updated pages of the faculty website using HTML and CSS.',
-      'Helped other students with small React and JavaScript exercises.',
-      'Prepared images and simple graphics for the web pages.',
-    ],
-  },
-  {
-    position: 'Car Wash Attendant (Part-time)',
+    position: 'Car Wash Attendant (Part time)',
     organisation: 'Local Car Wash, Mafeteng',
     responsibilities: [
-      'Washed and cleaned customer vehicles to the required standard.',
-      'Served customers, took their orders and handled payments.',
-      'Worked as part of a small team to finish jobs on time.',
+      'Washed and cleaned customer cars.',
+      'Helped customers and took payments.',
+      'Worked with other people to finish the work on time.',
     ],
   },
 ];
 
 export const projects = [
   {
-    name: 'Online CV (this project)',
+    name: 'My CV website',
     description:
-      'A single page CV website built with React components, props, useState and useEffect. It has Show/Hide buttons and a Print CV button.',
+      'This project. A CV website made with React components, props, useState and useEffect.',
   },
   {
-    name: 'Maluti Cabs Booking Page',
+    name: 'School booking form',
     description:
-      'A class project with a booking form built in HTML, CSS and JavaScript. The form checks that all fields are filled in before submitting.',
+      'A class project with a form made in HTML, CSS and JavaScript. The form checks if all the fields are filled in.',
   },
   {
-    name: 'Campus Notice Board',
+    name: 'Notice board app',
     description:
-      'A small React practice project where students can add and remove notices. It uses useState to keep the list of notices.',
+      'A small React practice project where you can add and remove notices. It uses useState to keep the list.',
   },
 ];
 
@@ -91,7 +81,6 @@ export const references = [
     name: 'Mr. Liteboho Molaoa',
     position: 'Lecturer, Web Design II',
     organisation: 'Limkokwing University of Creative Technology',
-    email: 'liteboho.molaoa@limkokwing.ac.ls',
     phone: '+266 5000 0001',
   },
   {

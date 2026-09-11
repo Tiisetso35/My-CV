@@ -1,115 +1,72 @@
-# Beginner Guide — Online CV (Web Design II, React Assignment)
+# My notes about this project
 
-This guide explains the project so you can present and defend it.
+These are my own notes so I can explain the project.
 
----
-
-## 1. Project structure
+## Project structure
 
 ```
-my-cv/
-  index.html               the single HTML page React loads into
-  package.json             project name and the npm commands
-  src/
-    main.jsx               starts React and puts <App /> inside index.html
-    App.jsx                the main component: holds the state and all sections
-    App.css                the styles for the layout, cards and buttons
-    index.css              the colours and basic page styles
-    data/
-      cvData.js            all my CV information (name, education, skills, ...)
-    assets/
-      profile.jpg          my profile photo
-    components/
-      Header.jsx           name, title, navigation links, Download CV button
-      Profile.jsx          photo and professional summary
-      Contact.jsx          email, phone, location
-      Education.jsx        institution, programme, year
-      Skills.jsx           list of skills + Show/Hide Skills button
-      Experience.jsx       position, organisation, responsibilities
-      Projects.jsx         three student projects
-      References.jsx       two references + Show/Hide References button
-      Footer.jsx           name, contact details, copyright
+src/
+  components/
+    Header.jsx
+    Profile.jsx
+    Contact.jsx
+    Education.jsx
+    Skills.jsx
+    Experience.jsx
+    Projects.jsx
+    References.jsx
+    Footer.jsx
+  data/
+    cvData.js
+  assets/
+    profile.jpg
+  App.jsx
+  App.css
+  index.css
+  main.jsx
 ```
 
-## 2. What each file does
+## What each file does
 
-| File | What it does |
-| --- | --- |
-| `index.html` | Has one empty `<div id="root">`. React puts the whole website inside it. |
-| `src/main.jsx` | Finds that `div` and renders the `App` component into it. |
-| `src/App.jsx` | The parent component. It keeps the `useState` values, the `useEffect`, the button functions, and it places all the other components on the page. |
-| `src/data/cvData.js` | All my information in one place, exported as variables. Nothing about design is in this file. |
-| `src/components/*.jsx` | Each one is a small component that receives information through props and returns JSX for that section. |
-| `src/index.css` | Colour variables (`--bg`, `--card`, `--accent`, `--text`) and basic styles for `body`, headings and links. |
-| `src/App.css` | Styles for the header, cards, grid, buttons, footer, the mobile layout and the print layout. |
+- `main.jsx` - starts React and puts App inside the div in index.html.
+- `App.jsx` - the main component. It has the two useState values, the useEffect and the
+  three button functions, and it puts all the other components on the page.
+- `cvData.js` - all my information (name, education, skills, experience, projects,
+  references). If I change it here it changes on the page.
+- The files in `components/` - each one is a small component for one section.
+- `index.css` - the body, colours and font.
+- `App.css` - the header, the boxes, the buttons, the footer, the phone size and the
+  printing.
 
-## 3. How the components work together (composition)
+## Props
 
-`main.jsx` renders `App`. `App` renders the nine components inside it:
-
-```
-main.jsx
- └── App.jsx
-      ├── Header
-      ├── Profile
-      ├── Contact
-      ├── Education
-      ├── Skills
-      ├── Experience
-      ├── Projects
-      ├── References
-      └── Footer
-```
-
-This is **component composition**: one bigger component (`App`) is built out of many
-smaller components. `App` imports the data once, and each child component only receives
-the part it needs.
-
-## 4. Where props are used
-
-Props are the information a parent component sends to a child component.
-
-In `App.jsx` (the parent):
+App sends the information to the small components, for example:
 
 ```jsx
-<Header name={person.name} title={person.title} onDownload={handleDownload} />
 <Education items={education} />
-<Skills items={skills} show={showSkills} onToggle={handleShowSkills} />
 ```
 
-In `Header.jsx` (the child) the props are received between curly brackets:
+and Education uses it:
 
 ```jsx
-function Header({ name, title, onDownload }) {
-  return <h1 className="header-name">{name}</h1>;
-}
+function Education({ items }) { ... }
 ```
 
-So nothing is hard-coded inside the components — if I change `person.name` in
-`cvData.js`, the Header, the Footer and the browser title all change.
+The sections with a list use `.map()` to make one box for every item in the array.
 
-The components that show a list (`Education`, `Skills`, `Experience`, `Projects`,
-`References`) receive an array in the `items` prop and use `.map()` to create one card
-for every item in the array. `key` is added so React can tell the items apart.
+## useState
 
-## 5. Where useState is used
-
-`useState` remembers a value while the page is open. In `App.jsx`:
+In App.jsx:
 
 ```jsx
 const [showSkills, setShowSkills] = useState(true);
-const [showReferences, setShowReferences] = useState(true);
 ```
 
-- `showSkills` is the current value (`true` = the skills are visible).
-- `setShowSkills` is the function used to change it.
-- `useState(true)` means it starts as `true`.
+`showSkills` is true when the skills are shown. `setShowSkills` changes it.
 
-When the value changes, React automatically redraws the page.
+## useEffect
 
-## 6. Where useEffect is used
-
-Also in `App.jsx`:
+In App.jsx:
 
 ```jsx
 useEffect(() => {
@@ -117,17 +74,9 @@ useEffect(() => {
 }, []);
 ```
 
-`useEffect` runs code after the page loads. Here it changes the text on the browser tab
-to "My CV - Tiisetso Rannyama". The empty array `[]` at the end means "run this only
-once, when the application loads".
+It runs one time when the page opens and changes the browser tab title.
 
-## 7. How the buttons work (event handling and DOM)
-
-There are three interactive features.
-
-**a) Show/Hide Skills**
-
-`App.jsx` has the function:
+## The buttons (events and DOM)
 
 ```jsx
 function handleShowSkills() {
@@ -135,127 +84,38 @@ function handleShowSkills() {
 }
 ```
 
-`!showSkills` means "the opposite": `true` becomes `false` and `false` becomes `true`.
-The function is sent to `Skills` as the `onToggle` prop, and `Skills.jsx` attaches it to
-the click event:
+`!showSkills` is the opposite, so true becomes false and false becomes true. The
+function is sent to Skills and used like this:
 
 ```jsx
 <button className="button" onClick={onToggle}>
   {show ? 'Hide Skills' : 'Show Skills'}
 </button>
 
-{show && (
-  <div className="card">... the list of skills ...</div>
-)}
+{show && <div className="card">... the skills ...</div>}
 ```
 
-- `onClick={onToggle}` is the **event handling**: the click runs the function.
-- `{show && ( ... )}` means "only put this part in the page if `show` is true". When
-  `show` becomes false React removes those elements from the DOM — that is the **DOM
-  manipulation**.
-- `{show ? 'Hide Skills' : 'Show Skills'}` changes the text on the button.
+When show is false React takes the skills out of the page. References works the same
+way. The Download CV button calls `window.print()` and then I choose Save as PDF.
 
-**b) Show/Hide References** — exactly the same, using `showReferences` in `App.jsx` and
-the same pattern inside `References.jsx`.
+## Responsive
 
-**c) Download CV**
+The container has `max-width: 800px` so it stays in the middle. There is a media query
+at 700px that makes the menu links go one under the other on a phone.
 
-```jsx
-function handleDownload() {
-  window.print();
-}
+## How I test it
+
+- Click Hide Skills and Show Skills.
+- Click Hide References and Show References.
+- Click Download CV and choose Save as PDF.
+- Click the menu links.
+- Look at the browser tab, it says My CV - Tiisetso Rannyama.
+- Make the window small to see the phone layout.
+
+## Putting it on GitHub
+
 ```
-
-`window.print()` is a browser (DOM) function that opens the print dialog. To download
-the CV, choose **Save as PDF** as the destination — the file is saved with the document
-title, "My CV - Tiisetso Rannyama". In `App.css`
-there is a small print rule so the buttons and the navigation are not printed:
-
-```css
-@media print {
-  .button,
-  .nav {
-    display: none;
-  }
-}
-```
-
-## 8. Responsive design
-
-- The page content uses `max-width: 900px` and `margin: 0 auto`, so it stays centred.
-- Cards use CSS Grid: `repeat(auto-fit, minmax(250px, 1fr))`, so they sit side by side on
-  a big screen and stack on a small screen.
-- A media query at `700px` puts the profile photo above the text and stacks the header.
-
-## 9. Instructions
-
-**1) Create the project with Vite** (only if you are starting from nothing — this
-project already exists):
-
-```bash
-npm create vite@latest my-cv -- --template react
-cd my-cv
-```
-
-**2) Install and run**
-
-```bash
-npm install
-npm run dev
-```
-
-Open the link it prints (http://localhost:5173) in the browser. Press `Ctrl + C` in the
-terminal to stop it.
-
-**3) Which files to create**
-
-Create the folders `src/components` and `src/data`, then create the nine `.jsx` files
-listed in section 1 plus `src/data/cvData.js`, and put your photo in `src/assets`.
-
-**4) Where to paste each piece of code**
-
-- The component code goes in its matching file inside `src/components/`.
-- The data goes in `src/data/cvData.js`.
-- The state, the `useEffect` and the button functions go in `src/App.jsx`.
-- The styles go in `src/App.css` and `src/index.css` (Vite already imports both).
-
-**5) How to test the buttons**
-
-- Click **Hide Skills** — the skills list disappears and the button says "Show Skills".
-  Click it again to bring the list back.
-- Click **Hide References** — the same happens with the references.
-- Click **Download CV** — the print window opens; choose "Save as PDF" to download the
-  CV. The buttons and the navigation are not on the saved page.
-- Click the navigation links — the page scrolls to that section.
-- Look at the browser tab — it says "My CV - Tiisetso Rannyama" (that is `useEffect`).
-- Make the browser window narrow, or press `F12` and choose a phone size, to check that
-  the layout is responsive.
-
-**6) How to build the project for submission**
-
-```bash
-npm run build
-```
-
-This creates a `dist` folder with the finished website. For submission, zip the project
-folder **without** `node_modules` and `dist`, and include a screenshot of the CV.
-
-**7) How to upload it to GitHub**
-
-```bash
-git init
 git add .
-git commit -m "Online CV React assignment"
-git branch -M main
-git remote add origin https://github.com/Tiisetso35/My-CV.git
-git push -u origin main
-```
-
-If the repository already has files, use `git pull origin main` first. After the first
-time, uploading changes is just:
-
-```bash
-git add .
-git commit -m "Describe the change"
+git commit -m "My CV assignment"
 git push
 ```

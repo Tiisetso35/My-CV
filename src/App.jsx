@@ -12,16 +12,15 @@ import { person, education, skills, experience, projects, references } from './d
 import './App.css';
 
 function App() {
-  // useState: these two values remember if the sections are shown or hidden
+  // useState keeps the skills and the references shown or hidden
   const [showSkills, setShowSkills] = useState(true);
   const [showReferences, setShowReferences] = useState(true);
 
-  // useEffect: runs once when the page loads and changes the browser tab title
+  // useEffect changes the title of the browser tab when the page opens
   useEffect(() => {
     document.title = 'My CV - ' + person.name;
   }, []);
 
-  // Event handler functions
   function handleShowSkills() {
     setShowSkills(!showSkills);
   }
@@ -30,24 +29,24 @@ function App() {
     setShowReferences(!showReferences);
   }
 
-  // Opens the browser print window, where the CV can be saved as a PDF file
+  // window.print() opens the print window, there I choose Save as PDF
   function handleDownload() {
     window.print();
   }
 
   return (
-    <div className="app">
+    <div>
       <Header name={person.name} title={person.title} onDownload={handleDownload} />
 
-      <main className="container">
-        <Profile person={person} />
+      <div className="container">
+        <Profile photo={person.photo} name={person.name} summary={person.summary} />
         <Contact email={person.email} phone={person.phone} location={person.location} />
         <Education items={education} />
         <Skills items={skills} show={showSkills} onToggle={handleShowSkills} />
         <Experience items={experience} />
         <Projects items={projects} />
         <References items={references} show={showReferences} onToggle={handleShowReferences} />
-      </main>
+      </div>
 
       <Footer name={person.name} email={person.email} phone={person.phone} />
     </div>

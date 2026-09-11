@@ -1,5 +1,4 @@
-// Education: receives the education list as a prop and shows one card
-// for each qualification using the map() function.
+// Education shows the schools I went to
 function Education({ items }) {
   return (
     <section className="section" id="education">
@@ -7,7 +6,7 @@ function Education({ items }) {
       {items.map((item) => (
         <div className="card" key={item.programme}>
           <h3>{item.programme}</h3>
-          <p className="highlight">{item.institution}</p>
+          <p>{item.institution}</p>
           <p>{item.year}</p>
         </div>
       ))}

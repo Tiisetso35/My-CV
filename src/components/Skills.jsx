@@ -1,19 +1,16 @@
-// Skills: shows the list of skills.
-// "show" tells the component if the list must be visible,
-// "onToggle" is the function that runs when the button is clicked.
+// Skills shows my skills and a button that hides or shows them
 function Skills({ items, show, onToggle }) {
   return (
     <section className="section" id="skills">
-      <div className="section-top">
-        <h2>Skills</h2>
-        <button className="button" onClick={onToggle}>
-          {show ? 'Hide Skills' : 'Show Skills'}
-        </button>
-      </div>
+      <h2>Skills</h2>
+
+      <button className="button" onClick={onToggle}>
+        {show ? 'Hide Skills' : 'Show Skills'}
+      </button>
 
       {show && (
         <div className="card">
-          <ul className="skill-list">
+          <ul>
             {items.map((skill) => (
               <li key={skill}>{skill}</li>
             ))}

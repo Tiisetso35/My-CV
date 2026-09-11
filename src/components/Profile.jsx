@@ -1,12 +1,11 @@
-// Profile: shows the photo and the short professional summary.
-// The whole person object is received as one prop.
-function Profile({ person }) {
+// Profile shows my picture and a short summary about me
+function Profile({ photo, name, summary }) {
   return (
     <section className="section" id="profile">
       <h2>Profile</h2>
-      <div className="card profile">
-        <img className="photo" src={person.photo} alt={person.name} />
-        <p>{person.summary}</p>
+      <div className="card">
+        <img className="photo" src={photo} alt={name} />
+        <p>{summary}</p>
       </div>
     </section>
   );

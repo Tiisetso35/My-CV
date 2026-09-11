@@ -1,50 +1,29 @@
-/* ---------- Header ---------- */
+/* Styles for my CV page */
+
+/* Header */
 .header {
-  background-color: var(--card);
-  border-bottom: 3px solid var(--accent);
+  background-color: #1d6f4f;
+  color: white;
   padding: 20px;
+  text-align: center;
 }
 
-.header-top {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-name {
-  font-size: 28px;
+.header h1 {
   margin: 0;
 }
 
-.header-title {
-  color: var(--accent);
-  margin: 4px 0 0 0;
-}
-
 .nav {
-  max-width: 900px;
-  margin: 15px auto 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  margin-top: 10px;
 }
 
 .nav a {
-  color: var(--muted);
-  font-size: 15px;
+  color: white;
+  margin-right: 15px;
 }
 
-.nav a:hover {
-  color: var(--accent);
-}
-
-/* ---------- Page ---------- */
+/* Main part of the page */
 .container {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -54,132 +33,59 @@
 }
 
 .section h2 {
-  font-size: 20px;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 6px;
-  margin-bottom: 15px;
+  border-bottom: 2px solid #1d6f4f;
+  padding-bottom: 5px;
 }
 
-.section-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.section-top h2 {
-  flex: 1;
-}
-
-/* ---------- Cards ---------- */
+/* Boxes for each item */
 .card {
-  background-color: var(--card);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  padding: 15px 20px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  padding: 15px;
   margin-bottom: 15px;
 }
 
 .card h3 {
-  font-size: 17px;
   margin: 0 0 5px 0;
 }
 
-.card p {
-  margin: 5px 0;
-}
-
-.highlight {
-  color: var(--accent);
-  font-weight: bold;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.grid .card {
-  margin-bottom: 0;
-}
-
-/* ---------- Profile ---------- */
-.profile {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
 .photo {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--accent);
+  width: 120px;
+  margin-bottom: 10px;
 }
 
-/* ---------- Skills ---------- */
-.skill-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 5px;
-  margin: 0;
-}
-
-/* ---------- Button ---------- */
+/* Buttons */
 .button {
-  background-color: var(--accent);
-  color: #ffffff;
+  background-color: #1d6f4f;
+  color: white;
   border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 8px 15px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #17805f;
-}
-
-/* ---------- Footer ---------- */
+/* Footer */
 .footer {
-  background-color: var(--card);
-  border-top: 3px solid var(--accent);
+  background-color: #1d6f4f;
+  color: white;
   text-align: center;
-  padding: 20px;
-  color: var(--muted);
+  padding: 15px;
   font-size: 14px;
 }
 
-.footer-name {
-  color: var(--text);
-  font-weight: bold;
-}
-
-.footer p {
-  margin: 4px 0;
-}
-
-/* ---------- Tablet and mobile ---------- */
+/* Small screens like tablets and phones */
 @media (max-width: 700px) {
-  .profile {
-    flex-direction: column;
-    text-align: center;
+  .container {
+    padding: 10px;
   }
 
-  .header-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav {
-    gap: 10px;
+  .nav a {
+    display: block;
+    margin-bottom: 5px;
   }
 }
 
-/* ---------- Printing ---------- */
+/* Hide the buttons and the menu when the CV is printed */
 @media print {
   .button,
   .nav {
